@@ -1,5 +1,6 @@
 import { Sequelize } from "sequelize";
 import categoryModel, { Category } from "../models/category.model";
+import detailRatingModel, { DetailRating } from "../models/detail_rating.model";
 import productsModel, { Products } from "../models/products.model";
 import productCategory, {
   Product_Category,
@@ -20,6 +21,7 @@ interface IFormDB {
   Category?: typeof Category;
   Products?: typeof Products;
   Product_Category?: typeof Product_Category;
+  DetailRating?: typeof DetailRating;
 }
 
 const db: IFormDB = {};
@@ -28,5 +30,6 @@ db.User = UserModel(sequelize);
 db.Category = categoryModel(sequelize);
 db.Products = productsModel(sequelize);
 db.Product_Category = productCategory(sequelize);
+db.DetailRating = detailRatingModel(sequelize);
 
 export default db;

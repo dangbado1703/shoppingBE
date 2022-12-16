@@ -12,7 +12,7 @@ export const requestMiddleWare = async (
   const token = req.header("Authorization")?.replace("Bearer ", "");
   if (!token) return res.status(401).json({ message: "Invalid Token" });
   try {
-    const data: any = await jwt.verify(token, process.env.TOKEN_KEY as string);
+    const data: any = jwt.verify(token, process.env.TOKEN_KEY as string);
     req.username = data.username;
     req.user_id = data.user_id;
     next();

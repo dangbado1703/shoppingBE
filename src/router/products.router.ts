@@ -35,7 +35,6 @@ Router.post(
   createProductsController
 );
 
-Router.get("/detail", detailProductController);
 Router.post(
   "/update",
   (req, res, next) => {

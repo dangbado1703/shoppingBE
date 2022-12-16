@@ -14,6 +14,7 @@ import productsRouter from "./router/products.router";
 import searchRouter from "./router/searchUser.router";
 import userRouter from "./router/user.router";
 import getDataRouter from "./router/getData.router";
+import shopping from "./router/shopping.router";
 
 db;
 declare module "express-serve-static-core" {
@@ -33,6 +34,7 @@ app.use("/shopping/user", loginRouter);
 app.use("/shopping/user", userRouter);
 app.use("/shopping/products", getDataRouter);
 app.use(requestMiddleWare);
+app.use("/shopping", shopping);
 app.use("/shopping/search", searchRouter);
 app.use("/shopping/category", categoryRouter);
 app.use("/shopping/products", productsRouter);
