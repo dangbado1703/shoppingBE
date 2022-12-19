@@ -8,8 +8,6 @@ import productCategory, {
 import UserModel, { User } from "../models/user.model";
 const USER_NAME = process.env.USER_NAME as string;
 const PASSWORD = process.env.PASSWORD as string;
-console.log("username::::", USER_NAME);
-console.log("password", PASSWORD);
 const sequelize = new Sequelize("shopping", USER_NAME, PASSWORD, {
   dialect: "mysql",
   host: "localhost",
