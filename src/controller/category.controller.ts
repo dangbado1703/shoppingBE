@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { Request, Response, ErrorRequestHandler } from "express";
 import { ERROR_INTERNAL } from "../contants/contants";
 import { Category } from "../models/category.model";
 import { searchCategory } from "../sql/searchCategory";
@@ -91,7 +91,7 @@ export const searchCategoryController = async (
       message: "Lấy thông tin thành công",
       data: dataSearch,
       status: 200,
-      totalElements: count[0].total,
+      totalElements: count && count[0].total,
     });
   } catch (error) {
     console.log("error:::", error);

@@ -1,13 +1,17 @@
 import { QueryTypes } from "sequelize";
 import db from "../config/config";
+import { IFormCategory } from "../type/category.type";
+interface Count {
+  total: number | undefined;
+}
 
 export const searchCategory: (searchObj: {
   name: string | undefined;
   offset: string;
   size: string;
 }) => Promise<{
-  dataSearch: object[] | undefined;
-  count: any;
+  dataSearch: IFormCategory[] | undefined;
+  count: Count[] | undefined;
 }> = async (searchObj: {
   name: string | undefined;
   offset: string;
@@ -19,11 +23,11 @@ export const searchCategory: (searchObj: {
   }
   const countQuery = `select count(*) as total from (${sql}) as data`;
   sql += "order by name desc limit $size offset $offset";
-  const dataSearch = await db.sequelize?.query(sql, {
+  const dataSearch = await db.sequelize?.query<IFormCategory>(sql, {
     bind: searchObj,
     type: QueryTypes.SELECT,
   });
-  const count = await db.sequelize?.query(countQuery, {
+  const count = await db.sequelize?.query<Count>(countQuery, {
     bind: searchObj,
     type: QueryTypes.SELECT,
   });
