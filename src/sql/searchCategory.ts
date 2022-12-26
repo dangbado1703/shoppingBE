@@ -1,9 +1,7 @@
 import { QueryTypes } from "sequelize";
 import db from "../config/config";
+import { Count } from "../type";
 import { IFormCategory } from "../type/category.type";
-interface Count {
-  total: number | undefined;
-}
 
 export const searchCategory: (searchObj: {
   name: string | undefined;

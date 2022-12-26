@@ -10,3 +10,11 @@ export interface IFormRules {
   required: boolean;
   value: any;
 }
+
+export interface Count {
+  total: number | undefined;
+}
+
+export interface Total {
+  totalItem: number | undefined;
+}

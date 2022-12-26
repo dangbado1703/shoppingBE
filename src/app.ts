@@ -15,13 +15,14 @@ import searchRouter from "./router/searchUser.router";
 import userRouter from "./router/user.router";
 import getDataRouter from "./router/getData.router";
 import shopping from "./router/shopping.router";
+import cart from "./router/cart.router";
 
 db;
 declare module "express-serve-static-core" {
   interface Request {
     username?: string;
     fileValidationError?: string;
-    user_id?: string;
+    user_id: number;
   }
 }
 const app: Application = Express();
@@ -34,6 +35,7 @@ app.use("/shopping/user", loginRouter);
 app.use("/shopping/user", userRouter);
 app.use("/shopping/products", getDataRouter);
 app.use(requestMiddleWare);
+app.use("/shopping", cart);
 app.use("/shopping", shopping);
 app.use("/shopping/search", searchRouter);
 app.use("/shopping/category", categoryRouter);

@@ -13,7 +13,7 @@ export class DetailRating extends Model<
 > {
   declare id?: CreationOptional<number>;
   declare product_id?: number;
-  declare user_id?: string;
+  declare user_id?: number;
   declare star?: number;
   declare comment?: string;
   declare updatedAt?: Date;

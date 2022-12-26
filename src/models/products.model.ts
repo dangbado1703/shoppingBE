@@ -11,7 +11,7 @@ export class Products extends Model<
   InferCreationAttributes<Products>
 > {
   declare product_id?: string;
-  declare user_id?: string;
+  declare user_id?: number;
   declare product_name?: string;
   declare product_code?: string;
   declare facturers?: string;
